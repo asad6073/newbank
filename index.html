@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsonal Bank</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hello.js">
+</head>
+<body>
+    <div id="login-area">
+        <h1 class="text-center">Welcome My Parsonal Bank</h1>
+        <div class="submite-area">
+            <h3>Login</h3>            
+            <input class="form-control" type="text" placeholder="Email">
+            <br>
+            <input class="form-control" type="password" placeholder="Enter your password" name="" id="">
+            <br>
+            <button id="login" class="enter">Enter</button>
+        </div>
+    </div>
+
+    <div id="transaction-area">
+    
+        <div class="row">
+            <div class="col-md-4">
+                <div class="Deposit">
+                    <h5>Deposit</h5>
+                    <h1>$ 00</h1>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="Withdraw">
+                    <h5> Withdraw</h5>
+                    <h1>$ 00</h1>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="Balance">
+                    <h5>Balance</h5>
+                    <h1>$ 1240</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="bar">
+                        <h3>Deposit</h3>
+                        <input id="depositAmount" class="form-control" type="text" placeholder="$ amount you wnat to Deposit">
+                        <br>
+                        <button id="deposit" class="enter">Deposit</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bar">
+                        <h3>Withdraw</h3>
+                        <input id="withdraw-bar" class="form-control" type="text" placeholder="$ amount you want to Withdraw">
+                        <br>
+                        <button id="withdraw" class="enter">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+
+                
+        </div>
+        
+
+
+    </div>
+    <script>
+        //
+        const login = document.getElementById("login");
+        login.addEventListener("click" ,function(){
+        
+        const loginArea = document.getElementById ("login-area");
+        loginArea.style.display = "none";
+
+        const transactionArea = document.getElementById("transaction-area");
+        transactionArea.style.display = "block"
+        
+        })
+
+        //
+        const depositBar = document.getElementById("deposit");
+        depositBar.addEventListener("click", function(){
+        const depositAmount = document.getElementById("depositAmount").value;
+        const depositNumber = parseFloat("depositAmount");
+
+        })
+    </script>
+</body>
+</html>
