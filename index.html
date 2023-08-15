@@ -6,7 +6,6 @@
     <title>Parsonal Bank</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="hello.js">
 </head>
 <body>
     <div id="login-area">
@@ -27,21 +26,21 @@
             <div class="col-md-4">
                 <div class="Deposit">
                     <h5>Deposit</h5>
-                    <h1>$ 00</h1>
+                    <h1>$ <span id="currentDeposit">00</span></h1>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="Withdraw">
                     <h5> Withdraw</h5>
-                    <h1>$ 00</h1>
+                    <h1>$ <span id="currentWithdraw">00</span></h1>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="Balance">
                     <h5>Balance</h5>
-                    <h1>$ 1240</h1>
+                    <h1>$ <span id="currentBalance">00</span></h1>
                 </div>
             </div>
 
@@ -57,7 +56,7 @@
                 <div class="col-md-6">
                     <div class="bar">
                         <h3>Withdraw</h3>
-                        <input id="withdraw-bar" class="form-control" type="text" placeholder="$ amount you want to Withdraw">
+                        <input id="withdrawAmount" class="form-control" type="text" placeholder="$ amount you want to Withdraw">
                         <br>
                         <button id="withdraw" class="enter">Withdraw</button>
                     </div>
@@ -87,9 +86,44 @@
         const depositBar = document.getElementById("deposit");
         depositBar.addEventListener("click", function(){
         const depositAmount = document.getElementById("depositAmount").value;
-        const depositNumber = parseFloat("depositAmount");
+        const depositNumber = parseFloat(depositAmount);
+
+        upadateSpanText("currentDeposit", depositNumber)
+        upadateSpanText("currentBalance", depositNumber)
+        
+
+        document.getElementById("depositAmount").value ="";
 
         })
+
+        const withdrawdBtn = document.getElementById("withdraw");
+        withdrawdBtn.addEventListener("click", function(){
+        const withdrawNumber = getInputNumber("withdrawAmount");
+        
+        upadateSpanText("currentWithdraw", withdrawNumber);
+        upadateSpanText("currentBalance", -1* withdrawNumber);
+
+
+        document.getElementById("withdrawAmount").value="";
+
+                
+       })
+
+       function getInputNumber (id){
+        const withdraw = document.getElementById(id).value;
+        const withdrawNumber = parseFloat(withdraw);
+        return withdrawNumber;
+       }
+
+
+        function upadateSpanText(id, depositNumber){
+        const current = document.getElementById(id).innerText;
+        const currentNumber =parseFloat (current);
+        const total = depositNumber+currentNumber;
+        document.getElementById(id).innerText=total;
+        }
+
+
     </script>
 </body>
 </html>
